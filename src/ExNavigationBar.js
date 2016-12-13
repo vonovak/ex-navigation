@@ -11,6 +11,7 @@ import {
 import PureComponent from './utils/PureComponent';
 import { unsupportedNativeView } from './ExUnsupportedNativeView';
 import { withNavigation } from './ExNavigationComponents';
+import {observer} from 'mobx-react/native';
 
 let Components;
 if (global.__exponent) {
@@ -37,7 +38,7 @@ class ExNavigationBarTitle extends PureComponent {
     const { children, style, textStyle, tintColor } = this.props;
 
     return (
-      <View style={[titleStyles.title, style]}>
+      <View numberOfLines={1} style={[titleStyles.title, style]}>
         <Text style={[
           titleStyles.titleText,
           tintColor ? {color: tintColor} : null,
@@ -55,7 +56,7 @@ const titleStyles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    marginHorizontal: 16,
+    marginHorizontal: 50,
   },
 
   titleText: {
@@ -154,6 +155,7 @@ const buttonStyles = StyleSheet.create({
   },
 });
 
+@observer
 export default class ExNavigationBar extends PureComponent {
   static defaultProps = {
     renderTitleComponent(props) {
