@@ -38,8 +38,8 @@ class ExNavigationBarTitle extends PureComponent {
     const { children, style, textStyle, tintColor } = this.props;
 
     return (
-      <View numberOfLines={1} style={[titleStyles.title, style]}>
-        <Text style={[
+      <View style={[titleStyles.title, style]}>
+        <Text numberOfLines={1} style={[
           titleStyles.titleText,
           tintColor ? {color: tintColor} : null,
           textStyle,
