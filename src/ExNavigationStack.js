@@ -616,8 +616,9 @@ class ExNavigationStack extends PureComponent<any, Props, State> {
     }
 
     if (props.scene.index > 0) {
+      let onPress = routeConfig.navigationBar && routeConfig.navigationBar.leftAction && routeConfig.navigationBar.leftAction.onPress
       return (
-        <NavigationBar.BackButton tintColor={route.getBarTintColor()} />
+        <NavigationBar.BackButton tintColor={route.getBarTintColor()} onPress={onPress} />
       );
     }
 
@@ -669,14 +670,15 @@ class ExNavigationStack extends PureComponent<any, Props, State> {
 
       return null;
     } else if (routeConfig.navigationBar && typeof routeConfig.navigationBar.rightActions === 'object') {
-        const NavigationButton = this.props.navigationButton;
-        const btns = routeConfig.navigationBar.rightActions.slice().map((action)=>{
+        // const NavigationButton = this.props.navigationButton;
+        const NavigationButtonsWrapper = this.props.navigationButtonsWrapper;
 
+        /*const btns = routeConfig.navigationBar.rightActions.slice().map((action)=>{
             return <NavigationButton key={action.title} right action={action}
                                      route={route} sceneRendererProps={props}/>
-        })
+        })*/
         return <View style={{flex: 1, flexDirection: 'row'}}>
-            {btns}
+            <NavigationButtonsWrapper rightActions={routeConfig.navigationBar.rightActions.slice()} route={route} sceneRendererProps={props} />
         </View>
     }
 

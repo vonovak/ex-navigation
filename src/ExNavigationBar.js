@@ -56,7 +56,7 @@ const titleStyles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    marginHorizontal: 50,
+    marginHorizontal: 16,
   },
 
   titleText: {
@@ -70,7 +70,7 @@ const titleStyles = StyleSheet.create({
       },
       android: {
         fontSize: 20,
-        // fontFamily: 'sans-serif-medium',
+        fontFamily: 'sans-serif-medium',
         textAlign: 'left',
       },
     }),
@@ -96,7 +96,9 @@ class ExNavigationBarBackButton extends PureComponent {
     );
   }
 
-  _onPress = () => this.props.navigator.pop();
+  _onPress = () => {
+    this.props.onPress ? this.props.onPress() : this.props.navigator.pop()
+  };
 }
 
 class ExNavigationBarMenuButton extends PureComponent {
