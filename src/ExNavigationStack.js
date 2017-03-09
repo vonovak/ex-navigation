@@ -608,6 +608,13 @@ class ExNavigationStack extends PureComponent<any, Props, State> {
         return <View style={{flex: 1, flexDirection: 'row'}}>
           <NavigationButton key={la.title} right action={la} route={route} sceneRendererProps={props}/>
         </View>
+    } else if (routeConfig.navigationBar && typeof routeConfig.navigationBar.leftAction === 'function') {
+        const NavigationButton = this.props.navigationButton;
+        let la = routeConfig.navigationBar.leftAction(route, props)
+        if(!la) return null
+        return <View style={{flex: 1, flexDirection: 'row'}}>
+          <NavigationButton key={la.title} right action={la} route={route} sceneRendererProps={props}/>
+        </View>
     }
 
     let menuButton = this._maybeRenderMenuButton('left', route, props);
@@ -678,7 +685,7 @@ class ExNavigationStack extends PureComponent<any, Props, State> {
                                      route={route} sceneRendererProps={props}/>
         })*/
         return <View style={{flex: 1, flexDirection: 'row'}}>
-            <NavigationButtonsWrapper rightActions={routeConfig.navigationBar.rightActions.slice()} route={route} sceneRendererProps={props} />
+            <NavigationButtonsWrapper navbar={routeConfig.navigationBar} route={route} sceneRendererProps={props} />
         </View>
     }
 
