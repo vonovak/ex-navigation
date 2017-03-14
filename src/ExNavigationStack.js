@@ -685,7 +685,7 @@ class ExNavigationStack extends PureComponent<any, Props, State> {
                                      route={route} sceneRendererProps={props}/>
         })*/
         return <View style={{flex: 1, flexDirection: 'row'}}>
-            <NavigationButtonsWrapper navbar={routeConfig.navigationBar} route={route} sceneRendererProps={props} />
+            <NavigationButtonsWrapper navigationBar={routeConfig.navigationBar} route={route} sceneRendererProps={props} />
         </View>
     }
 
