@@ -676,14 +676,10 @@ class ExNavigationStack extends PureComponent<any, Props, State> {
       }
 
       return null;
-    } else if (routeConfig.navigationBar && typeof routeConfig.navigationBar.rightActions === 'object') {
-        // const NavigationButton = this.props.navigationButton;
+    } else if (routeConfig.navigationBar && (typeof routeConfig.navigationBar.rightActions === 'object'
+    || typeof routeConfig.navigationBar.rightActions === 'function')) {
         const NavigationButtonsWrapper = this.props.navigationButtonsWrapper;
 
-        /*const btns = routeConfig.navigationBar.rightActions.slice().map((action)=>{
-            return <NavigationButton key={action.title} right action={action}
-                                     route={route} sceneRendererProps={props}/>
-        })*/
         return <View style={{flex: 1, flexDirection: 'row'}}>
             <NavigationButtonsWrapper navigationBar={routeConfig.navigationBar} route={route} sceneRendererProps={props} />
         </View>
