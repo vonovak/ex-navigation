@@ -69,7 +69,7 @@ export function createNavigatorComponent(WrappedComponent: ReactClass<any>) {
     { withRef: true },
   )(WrappedComponent);
 
-  class ExNavigatorComponent extends React.Component {
+  class ExNavigatorComponent extends React.PureComponent {
     props: Props;
     state: State;
     context: Context;
@@ -94,11 +94,11 @@ export function createNavigatorComponent(WrappedComponent: ReactClass<any>) {
       };
     }
 
-    shouldComponentUpdate(nextProps: Props, nextState: State, nextContext: Context) {
-      return !shallowEqual(this.props, nextProps) ||
-         !shallowEqual(this.state, nextState) ||
-         !shallowEqual(this.context, nextContext);
-    }
+    // shouldComponentUpdate(nextProps: Props, nextState: State, nextContext: Context) {
+    //   return !shallowEqual(this.props, nextProps) ||
+    //      !shallowEqual(this.state, nextState) ||
+    //      !shallowEqual(this.context, nextContext);
+    // }
 
     render(): ?ReactElement<any> {
       const navigation = this.getNavigationContext();
