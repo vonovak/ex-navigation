@@ -8,8 +8,8 @@ import {
   Platform,
   StyleSheet,
   View,
-  NavigationExperimental,
 } from 'react-native';
+import NavigationExperimental from 'navigation-experimental-fork';
 
 import _ from 'lodash';
 import invariant from 'invariant';

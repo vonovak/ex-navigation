@@ -1,8 +1,6 @@
 import _ from 'lodash';
 
-import {
-  NavigationExperimental,
-} from 'react-native';
+import NavigationExperimental from 'navigation-experimental-fork';
 
 import invariant from 'invariant';
 
