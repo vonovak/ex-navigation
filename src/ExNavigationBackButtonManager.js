@@ -2,11 +2,13 @@
  * @flow
  */
 
-import { BackAndroid } from 'react-native';
+import { BackHandler } from 'react-native';
 
 import ExNavigationActions from './ExNavigationActions';
 
 import type { ExNavigationStore } from './ExNavigationStore';
+
+const BackAndroid = BackHandler;
 
 /**
  * Manages a global listener, as well as any custom listeners, on the
